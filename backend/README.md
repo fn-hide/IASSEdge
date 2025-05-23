@@ -1,5 +1,9 @@
 # FastAPI Project - Backend
 
+## 🎯 TODO
+
+- [ ] 🎨 Separate schemas, interfaces, repositories and services
+
 ## Requirements
 
 * [Docker](https://www.docker.com/).
