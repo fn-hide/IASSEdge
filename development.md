@@ -1,4 +1,4 @@
-# FastAPI Project - Development
+# IASSEdge Project - Development
 
 ## Docker Compose
 
