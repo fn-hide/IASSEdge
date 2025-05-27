@@ -5,6 +5,13 @@ from .item import (
     ItemsPublic,
     ItemUpdate,
 )
+from .site import (
+    SiteBase,
+    SiteCreate,
+    SitePublic,
+    SitesPublic,
+    SiteUpdate,
+)
 from .user import (
     NewPassword,
     UpdatePassword,
@@ -32,4 +39,9 @@ __all__ = [
     "ItemUpdate",
     "ItemPublic",
     "ItemsPublic",
+    "SiteBase",
+    "SiteCreate",
+    "SiteUpdate",
+    "SitePublic",
+    "SitesPublic",
 ]
