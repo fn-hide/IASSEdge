@@ -8,6 +8,7 @@ import emails  # type: ignore
 import jwt
 from jinja2 import Template
 from jwt.exceptions import InvalidTokenError
+from pydantic import EmailStr
 
 from app.core import security
 from app.core.config import settings
@@ -32,7 +33,7 @@ def render_email_template(*, template_name: str, context: dict[str, Any]) -> str
 
 def send_email(
     *,
-    email_to: str,
+    email_to: EmailStr | str,
     subject: str = "",
     html_content: str = "",
 ) -> None:
@@ -65,7 +66,9 @@ def generate_test_email(email_to: str) -> EmailData:
     return EmailData(html_content=html_content, subject=subject)
 
 
-def generate_reset_password_email(email_to: str, email: str, token: str) -> EmailData:
+def generate_reset_password_email(
+    email_to: EmailStr | str, email: EmailStr | str, token: str
+) -> EmailData:
     project_name = settings.PROJECT_NAME
     subject = f"{project_name} - Password recovery for user {email}"
     link = f"{settings.FRONTEND_HOST}/reset-password?token={token}"
@@ -83,7 +86,7 @@ def generate_reset_password_email(email_to: str, email: str, token: str) -> Emai
 
 
 def generate_new_account_email(
-    email_to: str, username: str, password: str
+    email_to: EmailStr | str, username: EmailStr | str, password: str
 ) -> EmailData:
     project_name = settings.PROJECT_NAME
     subject = f"{project_name} - New account for user {username}"
@@ -121,3 +124,7 @@ def verify_password_reset_token(token: str) -> str | None:
         return str(decoded_token["sub"])
     except InvalidTokenError:
         return None
+
+
+def utcnow() -> datetime:
+    return datetime.now(timezone.utc)
