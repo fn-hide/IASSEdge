@@ -16,7 +16,7 @@
 ### Refactors
 
 - [x] 🗃️ Rename column title to name in an item table
-- [x] 🎨 Separate schemas, interfaces, repositories and services
+- [x] 🎨 Separate schemas, interfaces, repositories, and services
   - [ ] 🎨 Create exceptions module then separate with services
   - [ ] ✅ Update tests related to it
 
