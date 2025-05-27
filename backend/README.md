@@ -2,7 +2,17 @@
 
 ## 🎯 TODO
 
-- [ ] 🎨 Separate schemas, interfaces, repositories and services
+### Features
+
+- [ ] 🔒️ Consider adding refresh-token or MQTT
+
+### Fixes
+
+### Refactors
+
+- [x] 🎨 Separate schemas, interfaces, repositories and services
+  - [ ] 🎨 Create exceptions module then separate with services
+  - [ ] ✅ Update tests related to it
 
 ## Requirements
 
@@ -37,7 +47,7 @@ Modify or add SQLModel models for data and SQL tables in `./backend/app/models.p
 
 There are already configurations in place to run the backend through the VS Code debugger, so that you can use breakpoints, pause and explore variables, etc.
 
-The setup is also already configured so you can run the tests through the VS Code Python tests tab.
+The setup is also already configured, so you can run the tests through the VS Code Python tests tab.
 
 ## Docker Compose Override
 
@@ -53,7 +63,7 @@ There is also a command override that runs `fastapi run --reload` instead of the
 $ docker compose watch
 ```
 
-There is also a commented out `command` override, you can uncomment it and comment the default one. It makes the backend container run a process that does "nothing", but keeps the container alive. That allows you to get inside your running container and execute commands inside, for example a Python interpreter to test installed dependencies, or start the development server that reloads when it detects changes.
+There is also a commented out `command` override, you can uncomment it and comment the default one. It makes the backend container run a process that does "nothing," but keeps the container alive. That allows you to get inside your running container and execute commands inside, for example, a Python interpreter to test installed dependencies or start the development server that reloads when it detects changes.
 
 To get inside the container with a `bash` session you can start the stack with:
 
@@ -73,7 +83,7 @@ You should see an output like:
 root@7f2607af31c3:/app#
 ```
 
-that means that you are in a `bash` session inside your container, as a `root` user, under the `/app` directory, this directory has another directory called "app" inside, that's where your code lives inside the container: `/app/app`.
+that means that you are in a `bash` session inside your container, as a `root` user, under the `/app` directory, this directory has another directory called "app" inside; that's where your code lives inside the container: `/app/app`.
 
 There you can use the `fastapi run --reload` command to run the debug live reloading server.
 
@@ -87,9 +97,9 @@ $ fastapi run --reload app/main.py
 root@7f2607af31c3:/app# fastapi run --reload app/main.py
 ```
 
-and then hit enter. That runs the live reloading server that auto reloads when it detects code changes.
+Then hit entering. That runs the live reloading server that auto-reloads when it detects code changes.
 
-Nevertheless, if it doesn't detect a change but a syntax error, it will just stop with an error. But as the container is still alive and you are in a Bash session, you can quickly restart it after fixing the error, running the same command ("up arrow" and "Enter").
+Nevertheless, if it doesn't detect a change but a syntax error, it will just stop with an error. But as the container is still alive, and you are in a Bash session, you can quickly restart it after fixing the error, running the same command ("up arrow" and "Enter").
 
 ...this previous detail is what makes it useful to have the container alive doing nothing and then, in a Bash session, make it run the live reload server.
 
@@ -103,19 +113,19 @@ $ bash ./scripts/test.sh
 
 The tests run with Pytest, modify and add tests to `./backend/app/tests/`.
 
-If you use GitHub Actions the tests will run automatically.
+If you use GitHub Actions, the tests will run automatically.
 
 ### Test running stack
 
-If your stack is already up and you just want to run the tests, you can use:
+If your stack is already up, and you just want to run the tests, you can use:
 
 ```bash
 docker compose exec backend bash scripts/tests-start.sh
 ```
 
-That `/app/scripts/tests-start.sh` script just calls `pytest` after making sure that the rest of the stack is running. If you need to pass extra arguments to `pytest`, you can pass them to that command and they will be forwarded.
+That `/app/scripts/tests-start.sh` script just calls `pytest` after making sure that the rest of the stack is running. If you need to pass extra arguments to `pytest`, you can pass them to that command, and they will be forwarded.
 
-For example, to stop on first error:
+For example, to stop the first error:
 
 ```bash
 docker compose exec backend bash scripts/tests-start.sh -x
@@ -123,7 +133,7 @@ docker compose exec backend bash scripts/tests-start.sh -x
 
 ### Test Coverage
 
-When the tests are run, a file `htmlcov/index.html` is generated, you can open it in your browser to see the coverage of the tests.
+When the tests are run, a file `htmlcov/index.html` is generated; you can open it in your browser to see the coverage of the tests.
 
 ## Migrations
 
@@ -173,4 +183,4 @@ The email templates are in `./backend/app/email-templates/`. Here, there are two
 
 Before continuing, ensure you have the [MJML extension](https://marketplace.visualstudio.com/items?itemName=attilabuti.vscode-mjml) installed in your VS Code.
 
-Once you have the MJML extension installed, you can create a new email template in the `src` directory. After creating the new email template and with the `.mjml` file open in your editor, open the command palette with `Ctrl+Shift+P` and search for `MJML: Export to HTML`. This will convert the `.mjml` file to a `.html` file and now you can save it in the build directory.
+Once you have the MJML extension installed, you can create a new email template in the `src` directory. After creating the new email template and with the `.mjml` file open in your editor, open the command palette with `Ctrl+Shift+P` and search for `MJML: Export to HTML`. This will convert the `.mjml` file to a `.html` file, and now you can save it in the build directory.

@@ -12,7 +12,7 @@
 - 🐋 [Docker Compose](https://www.docker.com) for development and production.
 - 🔒 Secure password hashing by default.
 - 🔑 JWT (JSON Web Token) authentication.
-- 📫 Email based password recovery.
+- 📫 Email-based password recovery.
 - ✅ Tests with [Pytest](https://pytest.org).
 - 📞 [Traefik](https://traefik.io) as a reverse proxy / load balancer.
 - 🚢 Deployment instructions using Docker Compose, including how to set up a frontend Traefik proxy to handle automatic HTTPS certificates.
@@ -36,13 +36,13 @@ Read the [deployment.md](./deployment.md) docs for more details.
 
 Some environment variables in the `.env` file have a default value of `changethis`.
 
-You have to change them with a secret key, to generate secret keys you can run the following command:
+You have to change them with a secret key; to generate secret keys, you can run the following command:
 
 ```bash
 python -c "import secrets; print(secrets.token_urlsafe(32))"
 ```
 
-Copy the content and use that as password / secret key. And run that again to generate another secure key.
+Copy the content and use that as a password / a secret key. And run that again to generate another secure key.
 
 ## Documentations
 
