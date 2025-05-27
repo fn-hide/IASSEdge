@@ -15,6 +15,7 @@
 
 ### Refactors
 
+- [x] 🗃️ Remove the hashed_password column in the site table
 - [x] 🗃️ Rename column title to name in an item table
 - [x] 🎨 Separate schemas, interfaces, repositories, and services
   - [ ] 🎨 Create exceptions module then separate with services

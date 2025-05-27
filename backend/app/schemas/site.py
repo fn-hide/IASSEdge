@@ -12,10 +12,6 @@ class SiteBase(BaseModel):
     latitude: float
     longitude: float
     model: str = Field(min_length=1, max_length=255)
-    username: str = Field(min_length=1, max_length=255)
-    password: str = Field(min_length=8, max_length=40)
-    ip: str = Field(min_length=1, max_length=255)
-    port: int
     url: str
 
 
@@ -31,10 +27,6 @@ class SiteUpdate(SiteBase):
     latitude: float | None  # type: ignore
     longitude: float | None  # type: ignore
     model: float | None  # type: ignore
-    username: str | None = Field(min_length=1, max_length=255)  # type: ignore
-    password: str = Field(min_length=8, max_length=40)  # type: ignore
-    ip: str | None = Field(min_length=1, max_length=255)  # type: ignore
-    port: int | None  # type: ignore
     url: str | None  # type: ignore
 
 
