@@ -1,9 +1,9 @@
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    pass
+    from .base import BaseModel, SQLModel
 else:
-    pass  # type: ignore
+    from .base import BaseModel, SQLModel  # type: ignore
 
 from .item import Item
 from .main import (
@@ -14,6 +14,8 @@ from .main import (
 from .user import User
 
 __all__ = [
+    "BaseModel",
+    "SQLModel",
     "Message",
     "Token",
     "TokenPayload",
