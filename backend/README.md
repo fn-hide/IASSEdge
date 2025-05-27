@@ -4,12 +4,15 @@
 
 ### Features
 
+- [ ] 🗃️ Add site table
+- [ ] ✨ Add ping-server with a customizable interval
 - [ ] 🔒️ Consider adding refresh-token or MQTT
 
 ### Fixes
 
 ### Refactors
 
+- [x] 🗃️ Rename column title to name in an item table
 - [x] 🎨 Separate schemas, interfaces, repositories and services
   - [ ] 🎨 Create exceptions module then separate with services
   - [ ] ✅ Update tests related to it
