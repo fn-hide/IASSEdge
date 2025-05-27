@@ -7,7 +7,7 @@ from app.models.base import BaseModel
 
 # Shared properties
 class ItemBase(BaseModel):
-    title: str = Field(min_length=1, max_length=255)
+    name: str = Field(min_length=1, max_length=255)
     description: str | None = Field(default=None, max_length=255)
 
 
@@ -18,7 +18,7 @@ class ItemCreate(ItemBase):
 
 # Properties to receive on item update
 class ItemUpdate(ItemBase):
-    title: str | None = Field(default=None, min_length=1, max_length=255)  # type: ignore
+    name: str | None = Field(default=None, min_length=1, max_length=255)  # type: ignore
 
 
 # Properties to return via API, id is always required
