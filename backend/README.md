@@ -20,6 +20,7 @@
 - [x] 🚨 Add EmailStr type hint into generate_test_email
 - [x] 🗃️ Fix the wrong located ping_hub_interval column
 - [x] ⚰️ Remove unused ping-server utility
+- [x] 🐛 Fix a wrong SQL model used by alembic env
 
 ### Refactors
 
