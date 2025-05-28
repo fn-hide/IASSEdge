@@ -10,6 +10,7 @@
 - [x] ✨ Add sites interface, repository, schema, and service
 - [x] ✨ Add hub interface, repository, and service
 - [x] 👷 Add default hub initial data
+- [x] ✨ Add ping hub task
 - [ ] ✨ Add ping-server with a customizable interval
 - [ ] 🔒️ Consider adding refresh-token or MQTT
 

@@ -5,13 +5,16 @@ from pathlib import Path
 from typing import Any
 
 import emails  # type: ignore
+import httpx
 import jwt
 from jinja2 import Template
 from jwt.exceptions import InvalidTokenError
 from pydantic import EmailStr
+from sqlmodel import Session, create_engine, select
 
 from app.core import security
 from app.core.config import settings
+from app.models import Hub
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -128,3 +131,37 @@ def verify_password_reset_token(token: str) -> str | None:
 
 def utcnow() -> datetime:
     return datetime.now(timezone.utc)
+
+
+def get_ping_hub_interval() -> int:
+    engine = create_engine(str(settings.SQLALCHEMY_DATABASE_URI))
+    with Session(engine) as session:
+        stmt = select(Hub).limit(1)
+        hub = session.exec(stmt).first()
+        if not hub:
+            return 1
+        return hub.ping_hub_interval
+
+
+async def is_hub_up() -> bool:
+    engine = create_engine(str(settings.SQLALCHEMY_DATABASE_URI))
+    with Session(engine) as session:
+        stmt = select(Hub).limit(1)
+        hub = session.exec(stmt).first()
+    if not hub:
+        logger.info("✖️ Hub not found")
+        return False
+    try:
+        async with httpx.AsyncClient(timeout=1) as client:
+            response = await client.get(str(hub.url))
+            if response.status_code == 200:
+                logger.info(f"⬆️ Hub is up: {response.status_code}")
+                return True
+            logger.info(f"⬇️ Hub is down: {response.status_code}")
+            return False
+    except httpx.ReadTimeout:
+        logger.info("❌ Hub request failed: ReadTimeout")
+        return False
+    except Exception as e:
+        logger.info(f"❌ Hub request failed: {str(e)}")
+        return False
