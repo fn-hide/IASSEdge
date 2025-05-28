@@ -6,8 +6,9 @@
 
 - [x] 🗃️ Add site table
 - [x] 🗃️ Add hub table
-- [x] 🗃️ Add ping_hub_interval column in site table
+- [x] 🗃️ Add ping_hub_interval column in the site table
 - [x] ✨ Add sites interface, repository, schema, and service
+- [x] ✨ Add hub interface, repository, and service
 - [ ] ✨ Add ping-server with a customizable interval
 - [ ] 🔒️ Consider adding refresh-token or MQTT
 
@@ -15,6 +16,7 @@
 
 - [x] 🚨 Remove linter warning on interfaces
 - [x] 🚨 Add EmailStr type hint into generate_test_email
+- [x] 🗃️ Fix the wrong located ping_hub_interval column
 
 ### Refactors
 

@@ -1,8 +1,7 @@
 from typing import Generic, TypeVar
 
-from sqlmodel import func, select
+from sqlmodel import Session, func, select
 
-from app.api.deps import SessionDep
 from app.interfaces import IBase
 
 T = TypeVar("T")  # Entity
@@ -10,7 +9,7 @@ ID = TypeVar("ID")  # Primary Key
 
 
 class RBase(IBase[T, ID], Generic[T, ID]):
-    def __init__(self, session: SessionDep, model: type[T]) -> None:
+    def __init__(self, session: Session, model: type[T]) -> None:
         self.session = session
         self.model = model
 

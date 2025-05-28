@@ -1,9 +1,8 @@
 import uuid
 
 from pydantic import EmailStr
-from sqlmodel import select
+from sqlmodel import Session, select
 
-from app.api.deps import SessionDep
 from app.core.security import get_password_hash
 from app.interfaces import IUser
 from app.models import User
@@ -11,7 +10,7 @@ from app.repositories import RBase
 
 
 class RUser(RBase[User, uuid.UUID], IUser):
-    def __init__(self, session: SessionDep) -> None:
+    def __init__(self, session: Session) -> None:
         super().__init__(session, User)
 
     def update(self, obj: User, data: dict) -> User:
