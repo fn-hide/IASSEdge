@@ -12,6 +12,7 @@ class HubBase(BaseModel):
     latitude: float
     longitude: float
     url: str
+    ping_hub_interval: int = Field(ge=1, le=60 * 60 * 24)
 
 
 # Properties to receive on item creation
@@ -26,6 +27,7 @@ class HubUpdate(HubBase):
     latitude: float | None  # type: ignore
     longitude: float | None  # type: ignore
     url: str | None  # type: ignore
+    ping_hub_interval: int | None  # type: ignore
 
 
 # Properties to return via API, id is always required
