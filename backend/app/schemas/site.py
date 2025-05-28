@@ -13,6 +13,7 @@ class SiteBase(BaseModel):
     longitude: float
     model: str = Field(min_length=1, max_length=255)
     url: str
+    ping_hub_interval: int = Field(ge=1, le=60 * 60 * 24)
 
 
 # Properties to receive on item creation
@@ -28,6 +29,7 @@ class SiteUpdate(SiteBase):
     longitude: float | None  # type: ignore
     model: float | None  # type: ignore
     url: str | None  # type: ignore
+    ping_hub_interval: int | None  # type: ignore
 
 
 # Properties to return via API, id is always required
