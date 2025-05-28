@@ -56,7 +56,7 @@ def send_email(
     logger.info(f"send email result: {response}")
 
 
-def generate_test_email(email_to: str) -> EmailData:
+def generate_test_email(email_to: EmailStr | str) -> EmailData:
     project_name = settings.PROJECT_NAME
     subject = f"{project_name} - Test email"
     html_content = render_email_template(

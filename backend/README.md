@@ -13,6 +13,7 @@
 ### Fixes
 
 - [x] 🚨 Remove linter warning on interfaces
+- [x] 🚨 Add EmailStr type hint into generate_test_email
 
 ### Refactors
 
