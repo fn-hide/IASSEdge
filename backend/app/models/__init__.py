@@ -5,6 +5,7 @@ if TYPE_CHECKING:
 else:
     from .base import BaseModel, SQLModel  # type: ignore
 
+from .hub import Hub
 from .item import Item
 from .main import (
     Message,
@@ -23,4 +24,5 @@ __all__ = [
     "TokenPayload",
     "User",
     "Site",
+    "Hub",
 ]

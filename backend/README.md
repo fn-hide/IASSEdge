@@ -5,6 +5,7 @@
 ### Features
 
 - [x] 🗃️ Add site table
+- [x] 🗃️ Add hub table
 - [x] ✨ Add sites interface, repository, schema, and service
 - [ ] ✨ Add ping-server with a customizable interval
 - [ ] 🔒️ Consider adding refresh-token or MQTT

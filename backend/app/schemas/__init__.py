@@ -1,3 +1,10 @@
+from .hub import (
+    HubBase,
+    HubCreate,
+    HubPublic,
+    HubsPublic,
+    HubUpdate,
+)
 from .item import (
     ItemBase,
     ItemCreate,
@@ -44,4 +51,9 @@ __all__ = [
     "SiteUpdate",
     "SitePublic",
     "SitesPublic",
+    "HubBase",
+    "HubCreate",
+    "HubUpdate",
+    "HubPublic",
+    "HubsPublic",
 ]
