@@ -163,5 +163,5 @@ async def is_hub_up() -> bool:
         logger.info("❌ Hub request failed: ReadTimeout")
         return False
     except Exception as e:
-        logger.info(f"❌ Hub request failed: {str(e)}")
+        logger.info(f"❌ Hub request failed with global exception: {str(e)}")
         return False

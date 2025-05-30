@@ -7,7 +7,7 @@
 - [x] 🗃️ Add site table
 - [x] 🗃️ Add hub table
 - [x] 🗃️ Add ping_hub_interval column in the site table
-- [x] ✨ Add sites interface, repository, schema, and service
+- [x] ✨ Add site interface, repository, schema, and service
 - [x] ✨ Add hub interface, repository, and service
 - [x] 👷 Add default hub initial data
 - [x] ✨ Add ping hub task
@@ -21,6 +21,7 @@
 - [x] 🗃️ Fix the wrong located ping_hub_interval column
 - [x] ⚰️ Remove unused ping-server utility
 - [x] 🐛 Fix a wrong SQL model used by alembic env
+- [x] 💚 Fix missing http on default hub url
 
 ### Refactors
 
@@ -29,6 +30,7 @@
 - [x] 🎨 Separate schemas, interfaces, repositories, and services
   - [ ] 🎨 Create exceptions module then separate with services
   - [ ] ✅ Update tests related to it
+- [x] 💬 Update httpx global exception message
 
 ## Requirements
 
