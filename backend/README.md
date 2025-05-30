@@ -31,6 +31,7 @@
   - [ ] 🎨 Create exceptions module then separate with services
   - [ ] ✅ Update tests related to it
 - [x] 💬 Update httpx global exception message
+- [x] 🔧 Update default hub url
 
 ## Requirements
 
